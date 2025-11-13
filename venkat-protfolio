@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venkat Nemali | DevOps & Cloud Engineer</title>
+
+  <!-- Meta tags for LinkedIn / social preview -->
+  <meta property="og:title" content="Venkat Nemali | DevOps & Cloud Engineer">
+  <meta property="og:description" content="Java | AWS | CI/CD | Jenkins | DevOps | Cloud Enthusiast. Check out my portfolio!">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Venkat+Nemali+Portfolio">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f9fb;
+      color: #333;
+    }
+    header {
+      background: #1a202c;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      color: #9ca3af;
+      margin-top: 0.5rem;
+    }
+    nav {
+      background: #111827;
+      text-align: center;
+      padding: 0.8rem 0;
+    }
+    nav a {
+      color: #f9fafb;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #10b981;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    h2 {
+      text-align: center;
+      color: #1a202c;
+    }
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #111827;
+    }
+    footer {
+      background: #1a202c;
+      color: #9ca3af;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #059669;
+    }
+    .resume-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+    a {
+      color: #10b981;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Venkat Nemali</h1>
+    <p>DevOps | AWS | CI/CD | Cloud Engineer</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m <strong>Venkat Nemali</strong>, a Computer Science graduate passionate about
+      <b>DevOps, AWS, and cloud automation</b>. I’ve deployed web applications using
+      EC2, automated CI/CD pipelines using Jenkins, and worked with tools like Git, Ansible,
+      and Terraform. I enjoy solving real-world challenges through technology and automation.
+    </p>
+
+    <div class="resume-section">
+      <h3>📄 My Resume</h3>
+      <p>You can download my resume below:</p>
+      <a href="Nemali_Resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="card"><h3>Programming</h3><p>Java, Python</p></div>
+      <div class="card"><h3>DevOps Tools</h3><p>Jenkins, Git, Maven, Ansible, Terraform</p></div>
+      <div class="card"><h3>Cloud</h3><p>AWS (EC2, S3, IAM)</p></div>
+      <div class="card"><h3>Databases</h3><p>MySQL</p></div>
+      <div class="card"><h3>OS</h3><p>Linux</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Web Application Deployment</h3>
+        <p>Implemented automated deployment using AWS EC2 and Jenkins pipeline for CI/CD, reducing downtime and improving reliability.</p>
+      </div>
+      <div class="card">
+        <h3>OTT Platform (StarVee)</h3>
+        <p>Developed an OTT streaming platform with adaptive bitrate and multi-device support for seamless user experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:Nemalivenkat254@gmail.com">Nemalivenkat254@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/venkata-subba-reddy-nemali-1056b4206" target="_blank">linkedin.com/in/venkata-subba-reddy-nemali-1056b4206</a></p>
+    <p>Phone: 7287042334</p>
+  </section>
+
+  <footer>
+    © 2025 Venkat Nemali | Built with HTML & CSS
+  </footer>
+</body>
+</html>
+
