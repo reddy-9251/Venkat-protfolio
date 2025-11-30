@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nemali Venkata Subbareddy | DevOps & Cloud Engineer</title>
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-card: #0b1020;
+      --accent: #ff9800;
+      --accent-soft: rgba(255, 152, 0, 0.15);
+      --text-main: #f5f5f5;
+      --text-muted: #b0b3c1;
+      --border-subtle: #23263a;
+      --shadow-soft: 0 22px 45px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #101935 0, #050816 40%, #02030a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.92), transparent);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 0, #ffffff, #ff9800);
+      box-shadow: 0 0 22px rgba(255, 152, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #050816;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-text span:last-child {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+      border-color: var(--border-subtle);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 32px;
+      margin-top: 8px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .hero-main h1 {
+      font-size: clamp(30px, 4vw, 38px);
+      margin-bottom: 8px;
+    }
+
+    .hero-main h1 span {
+      color: var(--accent);
+    }
+
+    .hero-title-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .hero-main p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      background: none;
+      color: var(--text-main);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff9800, #ffcc33);
+      color: #050816;
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 28px 55px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-aside {
+      background: radial-gradient(circle at top, #1a1f3b, #050816 60%);
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-aside-tag {
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .hero-aside h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .hero-aside p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-aside-footer {
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 8px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+    }
+
+    .skill-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.015), rgba(0, 0, 0, 0.45));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 10px 12px;
+    }
+
+    .skill-title {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .skill-tag {
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+      gap: 14px;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.55));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 12px 13px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .project-tag {
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .project-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-meta span {
+      padding: 3px 7px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: radial-gradient(circle at top left, #1a1f3b 0, #050816 60%);
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px 16px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 14px;
+    }
+
+    .contact-main h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .contact-main p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-links {
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: var(--text-main);
+    }
+
+    .contact-links span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .contact-links a {
+      color: var(--accent);
+    }
+
+    .contact-side {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-highlight {
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 26px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-aside {
+        order: -1;
+      }
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-box {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-side {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-left: 0;
+        padding-top: 10px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">N</div>
+        <div class="logo-text">
+          <span>Nemali Venkata Subbareddy</span>
+          <span>DevOps & Cloud Engineer</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-main">
+        <h1>DevOps &amp; <span>Cloud Engineer</span></h1>
+        <p class="hero-title-sub">
+          Building automated CI/CD pipelines and scalable infrastructure on AWS using Jenkins, Terraform, Docker &amp; Linux.
+        </p>
+
+        <div class="hero-pill-row">
+          <div class="pill">AWS &amp; Cloud Infra</div>
+          <div class="pill">CI/CD – Jenkins pipelines</div>
+          <div class="pill">Terraform &amp; IaC</div>
+          <div class="pill">Docker &amp; Linux</div>
+        </div>
+
+        <p>
+          I focus on turning manual deployment processes into reliable, repeatable pipelines. Experienced in integrating
+          Jenkins, SonarQube, Nexus, and Tomcat with AWS infrastructure and automating provisioning using Terraform.
+        </p>
+
+        <div class="hero-actions">
+          <!-- TODO: replace # with your actual resume PDF link path -->
+          <a href="#" class="btn btn-primary" download>
+            📄 Download Resume
+          </a>
+          <a href="https://www.linkedin.com/in/venkata-subba-reddy-nemali-1056b4206" class="btn btn-ghost" target="_blank">
+            🔗 View LinkedIn Profile
+          </a>
+        </div>
+
+        <div class="hero-note">
+          Open to DevOps Engineer, Cloud Engineer &amp; Build &amp; Release Engineer roles.
+        </div>
+      </div>
+
+      <aside class="hero-aside">
+        <div class="hero-aside-tag">DevOps Snapshot</div>
+        <div class="hero-badges">
+          <div class="badge">Jenkins CI/CD</div>
+          <div class="badge">Terraform on AWS</div>
+          <div class="badge">Dockerized workloads</div>
+          <div class="badge">Linux Administration</div>
+        </div>
+        <h3>Cloud-native automation mindset</h3>
+        <p>
+          Hands-on working with EC2, security groups, CI/CD pipelines, artifact repositories and app deployment
+          workflows in real-time project setups.
+        </p>
+        <div class="hero-aside-footer">
+          <span>Focusing on reliability &amp; repeatability</span>
+          <span>Last updated: 2025</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT + SKILLS -->
+    <section id="about">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Profile</div>
+          <div class="section-title">About &amp; Skills</div>
+        </div>
+        <div class="section-subtitle">
+          Strong in CI/CD, cloud infra, automation, Git, and Linux administration.
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-title">Cloud &amp; Infrastructure</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS EC2</span>
+            <span class="skill-tag">S3 (basics)</span>
+            <span class="skill-tag">Security Groups</span>
+            <span class="skill-tag">Linux Servers</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">DevOps &amp; CI/CD</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">CI/CD pipelines</span>
+            <span class="skill-tag">SonarQube</span>
+            <span class="skill-tag">Nexus</span>
+            <span class="skill-tag">Tomcat</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Automation &amp; IaC</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">User data scripts</span>
+            <span class="skill-tag">Shell scripting (basics)</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Build &amp; Version Control</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Maven</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Operating Systems</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Linux Administration</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Core Strengths</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cloud Deployment</span>
+            <span class="skill-tag">CI/CD Automation</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Team Player</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header" style="margin-top: 24px;">
+        <div>
+          <div class="section-eyebrow">Projects</div>
+          <div class="section-title">Highlighted DevOps &amp; Cloud Projects</div>
+        </div>
+        <div class="section-subtitle">
+          Real-time style projects showing CI/CD, automation &amp; infra provisioning.
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-tag">CI/CD Pipeline</div>
+          <div class="project-title">End-to-End CI/CD with Jenkins, Maven, SonarQube, Nexus &amp; Tomcat</div>
+          <div class="project-body">
+            Built a full CI/CD pipeline that pulls code from Git, compiles with Maven, runs tests, performs SonarQube
+            code analysis, uploads artifacts to Nexus, and deploys to Tomcat – all automated via Jenkins pipelines.
+          </div>
+          <div class="project-meta">
+            <span>Jenkins</span>
+            <span>Maven</span>
+            <span>SonarQube</span>
+            <span>Nexus</span>
+            <span>Tomcat</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-tag">Infra Automation</div>
+          <div class="project-title">Terraform-based AWS Infrastructure with Jenkins &amp; Docker</div>
+          <div class="project-body">
+            Used Terraform to provision EC2 instances, security groups and then automatically installed Jenkins,
+            Docker and SonarQube containers using user data and shell provisioning – turning hours of manual setup
+            into a 10-minute automated workflow.
+          </div>
+          <div class="project-meta">
+            <span>AWS EC2</span>
+            <span>Terraform</span>
+            <span>Docker</span>
+            <span>Jenkins</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-tag">Version Control</div>
+          <div class="project-title">Git Distributed Developer Collaboration Workflow</div>
+          <div class="project-body">
+            Designed a remote Git repository model where one developer pushes changes to a bare repository and another
+            developer clones and synchronizes updates after being away – showing practical multi-developer collaboration.
+          </div>
+          <div class="project-meta">
+            <span>Git</span>
+            <span>Branching &amp; Cloning</span>
+            <span>Team Collaboration</span>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-tag">Linux &amp; Web</div>
+          <div class="project-title">Linux Apache Web Server &amp; Text Processing Automation</div>
+          <div class="project-body">
+            Set up Apache, hosted a static site with HTML/CSS, and then automated text/file processing using sed, grep,
+            links &amp; permissions – combining web hosting with Linux command-line automation.
+          </div>
+          <div class="project-meta">
+            <span>Linux</span>
+            <span>Apache</span>
+            <span>sed / grep</span>
+            <span>Permissions</span>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card">
+          <div class="project-tag">Streaming Platform</div>
+          <div class="project-title">OTPP (STARVEE) – OTT Streaming Platform</div>
+          <div class="project-body">
+            Worked on a streaming platform focused on seamless playback, adaptive bitrate and multi-device compatibility,
+            helping to reach a wider digital audience with stable delivery.
+          </div>
+          <div class="project-meta">
+            <span>Web App</span>
+            <span>Streaming</span>
+            <span>User Experience</span>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card">
+          <div class="project-tag">AWS Deployment</div>
+          <div class="project-title">Web Application Deployment on AWS EC2</div>
+          <div class="project-body">
+            Deployed a web application on AWS EC2 with automated CI/CD workflows, achieving low downtime and improved
+            operational reliability through properly configured infrastructure and deployment automation.
+          </div>
+          <div class="project-meta">
+            <span>AWS EC2</span>
+            <span>CI/CD</span>
+            <span>High Availability</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top: 30px;">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Contact</div>
+          <div class="section-title">Let’s Connect</div>
+        </div>
+        <div class="section-subtitle">
+          Open to opportunities, collaborations &amp; DevOps discussions.
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-main">
+          <h3>Ready to join a DevOps or Cloud team</h3>
+          <p>
+            I’m actively looking for DevOps Engineer, Cloud Engineer or Build &amp; Release Engineer roles where I can work
+            on CI/CD, automation, cloud infrastructure and Linux-based deployments.
+          </p>
+          <div class="contact-links">
+            <div>
+              <span>Phone</span><br />
+              📞 7287042334
+            </div>
+            <div>
+              <span>Email</span><br />
+              📧 <a href="mailto:Nemalivenkat254@gmail.com">Nemalivenkat254@gmail.com</a>
+            </div>
+            <div>
+              <span>LinkedIn</span><br />
+              🔗 <a href="https://www.linkedin.com/in/venkata-subba-reddy-nemali-1056b4206" target="_blank">
+                linkedin.com/in/venkata-subba-reddy-nemali-1056b4206
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-side">
+          <div>
+            <div class="contact-highlight">Why me?</div>
+            <p>
+              Hands-on with real CI/CD, Terraform-based infra, Git workflows and Linux automation. Quick learner,
+              comfortable with new tools and cloud-native ways of working.
+            </p>
+          </div>
+          <div>
+            <em>“Let’s build &amp; automate the future together.”</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Nemali Venkata Subbareddy · DevOps &amp; Cloud Engineer
+    </footer>
+  </div>
+</body>
+</html>
